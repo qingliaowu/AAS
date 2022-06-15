@@ -32,26 +32,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          git filter-branch --env-filter "
-
-          an="$GIT_AUTHOR_NAME"
-          am="$GIT_AUTHOR_EMAIL"
-          cn="$GIT_COMMITTER_NAME"
-          cm="$GIT_COMMITTER_EMAIL"
-
-          if [ "$GIT_COMMITTER_EMAIL" = "AutoupdateRobot@email.com" ]
-          then
-             cn="bradly0cjw"
-             cm="bradly093@gmail.com"
-          fi
-          if [ "$GIT_AUTHOR_EMAIL" = "AutoupdateRobot@email.com" ]
-          then
-              an="bradly0cjw"
-              am="bradly093@gmail.com"
-          fi
-
-          export GIT_AUTHOR_NAME="$an"
-          export GIT_AUTHOR_EMAIL="$am"
-          export GIT_COMMITTER_NAME="$cn"
-          export GIT_COMMITTER_EMAIL="$cm"
-          "
+         git change-commits GIT_AUTHOR_EMAIL "AutoupdateRobot@email.com" "bradly093@gmail.com" HEAD~99..HEAD
+     
+         
