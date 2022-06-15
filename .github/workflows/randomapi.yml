@@ -32,7 +32,7 @@ jobs:
         python updaterand.py
     - name: Commit #上传新的排序到仓库
       run: |
-        git config --global user.email bradly093@email.com
+        git config --global user.email bradly093@gmail.com
         git config --global user.name bradly0cjw
         git add .
         git commit -m "update new randapi" -a
