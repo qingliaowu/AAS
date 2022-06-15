@@ -32,6 +32,12 @@ jobs:
         python updaterand.py
     - name: Commit #上传新的排序到仓库
       run: |
+        git filter-branch -f --env-filter "
+        GIT_AUTHOR_NAME='bradly0cjw'
+        GIT_AUTHOR_EMAIL='bradly093@gmail.com'
+        GIT_COMMITTER_NAME='bradly0cjw'
+        GIT_COMMITTER_EMAIL='bradly093@gmail.com'
+        " HEAD
         git config --global user.email bradly093@email.com
         git config --global user.name bradly0cjw
         git add .
